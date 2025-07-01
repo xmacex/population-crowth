@@ -1,10 +1,10 @@
-# population-crowth
+# population crowth
 
-Logistic regression for monome crow.
+Logistic map for monome crow.
 
 ![](population-crowth.gif)
 
-The dynamical system xn=rx−1(1−x−1) known as the logistic map. It oscillates between two points when 3≤r≤3.44949, four and more points when 3.44949≤r≤3.56995 and is chaotic when 3.56995<r<4.
+The dynamical system $x_n=r_{x−1}(1−x_{−1})$ known as the logistic map. It oscillates between two points when 3 ≤ r ≤ 3.44949, four and more points when 3.44949 ≤ r ≤ 3.56995 and is chaotic when 3.56995 < r < 4.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/0/09/Feigenbaum_Tree.gif)
 
@@ -18,8 +18,8 @@ Inspired really by [KlangauKöln’s *Logistic Equation* module](https://xn--kla
 
 ## Documentation
 
-    → 1  clock
-    → 2  r
+    → 1 clock
+    → 2 r
       1 value t      →
       2 value t_{-1} →
       3 value t_{-2} →
@@ -29,4 +29,4 @@ This is a druid script, ie. a script running directly on crow and not on norns. 
 
 Give clock to crow input 1, and set r with input 2. Output 1 is the current output, and the three older values cascade from output 1 towards 4 before falling off, kind of like a shift register. Alternative ideas for outputs 2-4 are welcome.
 
-There are a few [public variables](https://monome.org/docs/crow/reference/#public) if you are into that sort of thing. bowering visualizes then.
+There are a few [public variables](https://monome.org/docs/crow/reference/#public) if you are into that sort of thing. [bowering](https://llllllll.co/t/bowering-a-crow-script-loader-for-norns/71797) visualizes then.
