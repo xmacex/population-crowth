@@ -12,7 +12,7 @@ The function is a real classic in study of systems, and connected to early clima
 
 > The map was initially utilized by Edward Lorenz in the 1960s to showcase properties of irregular solutions in climate systems. It was popularized in a 1976 paper by the biologist Robert May in part as a discrete-time demographic model analogous to the logistic equation written down by Pierre François Verhulst.
 
-This script exposes the interesting range of r from 3 to 4, set via crow input 2.
+This script exposes the interesting range of $r$ from 3 to 4, set via crow <kbd>input 2</kbd>.
 
 ## Documentation
 
@@ -25,7 +25,7 @@ This script exposes the interesting range of r from 3 to 4, set via crow input 2
 
 This is a druid script, ie. a script running directly on crow and not on norns. Run or upload to crow with [druid](https://monome.org/docs/crow/druid/), or use [bowering](https://llllllll.co/t/bowering-a-crow-script-loader-for-norns/71797) from norns as I do.
 
-Give clock to crow input 1, and set r with input 2. Output 1 is the current output, and the three older values cascade from output 1 towards 4 before falling off, kind of like a shift register. Alternative ideas for outputs 2-4 are welcome.
+Give clock to crow <kbd>input 1</kbd>, and set $r$ with <kbd>input 2</kbd>. <kbd>Output 1</kbd> is the current output, and the three older values cascade from output 1 towards 4 before falling off, kind of like a shift register. Alternative ideas for outputs 2-4 are welcome.
 
 There are a few [public variables](https://monome.org/docs/crow/reference/#public) if you are into that sort of thing. [bowering](https://llllllll.co/t/bowering-a-crow-script-loader-for-norns/71797) visualizes then.
 
