@@ -1,4 +1,4 @@
----logistic map
+--- Population crowth
 -- → 1  clock
 -- → 2  r
 --   1 value t      →
