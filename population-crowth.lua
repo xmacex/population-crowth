@@ -1,36 +1,35 @@
 --- Population crowth
--- → 1  clock
--- → 2  r
---   1 value t      →
---   2 value t_{-1} →
---   3 value t_{-2} →
---   4 value t_{-3} →
+-- → 1 clock
+-- → 2 r
+--   1 value x_n     →
+--   2 value x_{n-1} →
+--   3 value x_{n-2} →
+--   4 value x_{n-3} →
 
 MINR  = 3
 MAXR  = 4
 MAXV  = 10 -- Eurorack spec
-SCALE = 5
 
-function l(t_)
-    return public.r*t_*(1-t_)
+function logistic_map(x_prev)
+    return public.r * x_prev * (1-x_prev)
 end
 
 function init()
     public{r      = 3.2}:range(MINR, MAXR):type('@')
     public{values = {0.1, 0.1, 0.1, 0.1}}:type('@')
-    public{case   = 'osc 2'}:options{'osc 2', 'osc 4', 'osc 8', 'osc n', 'kaos'}:type('@')
+    public{case   = 'osc 2'}:type('@')
 
     input[1]{mode = 'change', direction='rising'}
     input[1].change = function()
-        local t = l(public.values[1])
+        local x = logistic_map(public.values[1])
 
-        table.insert(public.values, 1, t)
+        table.insert(public.values, 1, x)
         if #public.values > 4 then
             table.remove(public.values, 5)
         end
 
         for i=1,4 do
-            output[i].volts = public.values[i] * SCALE
+            output[i].volts = public.values[i] * MAXV
             public.view.output[i]() -- visualize
         end
     end
