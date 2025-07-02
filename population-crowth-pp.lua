@@ -1,8 +1,8 @@
 --- Population crowth
--- Patch programmable r, patch output1 to input1
+-- Patch programmable t_{-1}, patch output1 to input1
 -- → 1 t_{-1}
 -- → 2 r
---   1 r            →
+--   1 t_{-1}       →
 --   2 value t_     →
 --   3 value t_{-1} →
 --   4 value t_{-2} →
@@ -19,6 +19,7 @@ end
 function tick()
     while true do
         public.t = input[1].volts / MAXV
+        -- store the current value in output 1
         output[1].volts = l(public.t) * MAXV
 
         table.insert(public.values, 1, public.t)
@@ -63,4 +64,5 @@ function init()
     end
 
     clock_id = clock.run(tick)
+    clock.tempo = 137
 end

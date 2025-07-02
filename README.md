@@ -33,16 +33,16 @@ Give clock to crow <kbd>input 1</kbd>, and set $r$ with <kbd>input 2</kbd>. <kbd
 
 ### The patch programmable version
 
-In file `population-crowth-pp.lua` you will find an extended, patch-programmable version of the logistic map. It implements the function $x_n=\Delta(r)x_{x−1} (1−x_{−1})$, where $\Delta$ is your Eurorack system.
+In file `population-crowth-pp.lua` you will find an extended, patch-programmable version of the logistic map. It implements the function $x_n=r \Delta(x_{x−1}) (1−\Delta(x_{−1}))$, where $\Delta$ is your Eurorack system.
 
     → 1 t_{-1}
     → 2 r
-      1 r            →
+      1 t_{-1}       →
       2 value t_     →
       3 value t_{-1} →
       4 value t_{-2} →
 
-Self-patch <kbd>output1</kbd> to <kbd>input 1</kbd>. Set $r$ with <kbd>input 2</kbd>. <kbd>Output 2</kbd> is the current value of the logistic map, and the three older values cascade from output 2 towards 4 before falling off, kind of like a shift register. If you patch output 1 directly to input 1, it will essentially have no effect (besides some noise and lower resolution) and it's the familiar logistic map. But in this version you can route $r$ via slew limiters, attenuverters, sequencers, offsets, filters, CV recorders, granular processing, &c. 
+Self-patch <kbd>output1</kbd> to <kbd>input 1</kbd>. Set $r$ with <kbd>input 2</kbd>. <kbd>Output 2</kbd> is the current value of the logistic map, and the two older values cascade from output 2 towards 4 before falling off, kind of like a shift register. If you patch output 1 directly to input 1, it will essentially have no effect (besides some noise and lower resolution) and it's the familiar logistic map. But in this version you can route the current value of the function $t_{-1}$ via slew limiters, attenuverters, sequencers, offsets, filters, CV recorders, granular processing, &c. 
 
 This version runs at 137 BPM, a tempo I like for techno music. You can change it by [setting `clock.tempo` from druid](https://monome.org/docs/crow/reference/#tempo-and-timing) or `clock.clock.tempo` from norns, and there is a clock divider public variable `public.clockdiv` you can set.
 
